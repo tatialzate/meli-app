@@ -1,0 +1,35 @@
+:root {
+    --primary-color: #FFE600;
+    --secondary-color: #333333;
+    --dark-grey: #666666;
+    --grey:#999999;
+    --light-grey:#EEEEEE;
+    --blue: #3483fA;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: "Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
+}
+
+header {
+    align-items: center;
+    background-color: var(--primary-color);
+    display: flex;
+    font-size: 1.8rem;
+    height: 5rem;
+    justify-content: center;
+}
+
+input {
+    font-size: 1.8rem;
+    font-family: "Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
+    outline: none;
+    padding: 0.8rem;
+}
