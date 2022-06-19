@@ -1,36 +1,32 @@
 import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+
+import logo from '../assets/Logo_ML.png';
 
 export const SearchBar = () => {
     let navigate = useNavigate();
     const [value, setValue] = useState('');
 
-    const searchProduct = (e) => {
-        e.preventDefault();
+    const searchProduct = (event) => {
+        event.preventDefault();
         setValue('');
-        goProducts();
-    }
-
-    const handlerInputChange = (e) => {
-        setValue(e.target.value);
-    }
-
-    const goProducts = () => {
         navigate('/items?q=' + value );
     }
 
+    const handlerInputChange = (event) => {
+        setValue(event.target.value);
+    }
+
     return (
-        <header>
-            {/* <Link className='' to='/' >Logo Meli</Link> */}
-            <form onSubmit={ searchProduct }>
+        <header className='header'>
+            <img className='header__image' src={ logo } alt='Mercado libre' />
+            <form className='header__form' onSubmit={ searchProduct }>
                 <input 
                     type='text'
                     value={ value }
                     onChange={ handlerInputChange } 
                     placeholder='Nunca dejes de buscar' />
-                <button 
-                    onSubmit={ searchProduct }
-                >Buscar</button>
+                <button onSubmit={ searchProduct }></button>
             </form>
         </header>
     )

@@ -5,19 +5,19 @@ import {
     Route
 } from 'react-router-dom';
 
-import { Products } from './Products';
+import { Main } from './Main';
+import { Products } from './ProductsList';
 import { ProductDetail } from './ProductDetail';
-import { SearchBar } from '../components/SearchBar';
 
 export const AppRouter = () => {
     return (
         <Router>
-            <SearchBar />
             <Routes>
-                <Route path='/'/>
-                <Route path='/items' element={<Products />}/>
-                <Route path='/items/:itemId' element={<ProductDetail />}/>
-                <Route path='*'/>
+                <Route path='/' element={<Main />}>
+                    <Route path='items' element={<Products />} />
+                    <Route path='items/:itemId' element={<ProductDetail />} />
+                </Route> 
+                <Route path='*' element={<Main />} />
             </Routes>
         </Router>     
     )

@@ -1,35 +1,204 @@
-:root {
-    --primary-color: #FFE600;
-    --secondary-color: #333333;
-    --dark-grey: #666666;
-    --grey:#999999;
-    --light-grey:#EEEEEE;
-    --blue: #3483fA;
-}
-
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-    font-size: 62.5%;
-    font-family: "Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
+  font-size: 62.5%;
+  font-family: Helvetica, Roboto, Arial, sans-serif;
+  background-color: #FFFFFF;
 }
 
-header {
-    align-items: center;
-    background-color: var(--primary-color);
-    display: flex;
-    font-size: 1.8rem;
-    height: 5rem;
-    justify-content: center;
+.header {
+  align-items: center;
+  background-color: #FFE600;
+  display: flex;
+  height: 5rem;
+  justify-content: center;
+}
+.header__image {
+  height: 3rem;
+  margin-right: 2.5rem;
+  width: 4.5rem;
+}
+.header__form {
+  width: 60%;
+}
+.header__form input {
+  border: none;
+  border-radius: 0.2rem;
+  font-size: 1.8rem;
+  font-family: Helvetica, Roboto, Arial, sans-serif;
+  outline: none;
+  padding: 0.6rem;
+  width: 94%;
+}
+.header__form button {
+  background-image: url("./assets/ic_Search@2x.png.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 1.5rem;
+  border: none;
+  height: 3.2rem;
+  /* Pendiente validar este padding */
+  padding: 1rem;
+  width: 3.5rem;
 }
 
-input {
-    font-size: 1.8rem;
-    font-family: "Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
-    outline: none;
-    padding: 0.8rem;
+main {
+  padding: 3.2rem 0;
 }
+
+.products-cards {
+  align-items: center;
+  background-color: #999999;
+  display: flex;
+  border-radius: 0.4rem;
+  flex-direction: column;
+  margin: 0rem auto;
+  width: 80%;
+}
+
+.card {
+  color: #333333;
+  background-color: #FFFFFF;
+  display: grid;
+  grid-template: auto auto/18rem 70% auto;
+  gap: 1.6rem;
+  grid-template-areas: "image info city" "separator separator separator";
+  padding: 1.6rem;
+  width: 100%;
+}
+.card:last-child hr {
+  display: none;
+}
+.card__image {
+  border-radius: 0.4rem;
+  cursor: pointer;
+  grid-area: image;
+  height: 18rem;
+  margin-right: 1.6rem;
+  width: 18rem;
+}
+.card__image img {
+  border-radius: 0.4rem;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+.card__content {
+  grid-area: info;
+}
+.card__price {
+  font-size: 2.4rem;
+}
+.card__price span {
+  margin-right: 0.5rem;
+}
+.card__title {
+  cursor: pointer;
+  font-size: 1.8rem;
+  font-weight: 400;
+  margin-top: 3.2rem;
+}
+.card__free-shipping {
+  background-size: contain;
+  height: 1.4rem;
+  margin-left: 0.7rem;
+  width: 1.4rem;
+}
+.card__city {
+  font-size: 1.2rem;
+  grid-area: city;
+}
+
+.card__content,
+.card__city {
+  padding-top: 1.6rem;
+}
+
+hr {
+  border: 0.05rem solid #EEEEEE;
+  grid-area: separator;
+}
+
+/** Tablet **/
+@media screen and (max-width: 1024px) {
+  .header__image {
+    height: 2.9rem;
+    margin-right: 1.8rem;
+    width: 4.4rem;
+  }
+  .header__form input {
+    font-size: 1.5rem;
+    width: 88%;
+  }
+  .header__form button {
+    height: 3rem;
+    /* Pendiente validar este padding */
+    padding: 0.9rem;
+  }
+
+  .card {
+    grid-template: auto auto/11rem 55% auto;
+    grid-template-areas: "image info city" "separator separator separator";
+  }
+  .card__image {
+    height: 11rem;
+    width: 11rem;
+  }
+  .card__title {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+  }
+  .card__price {
+    font-size: 2.1rem;
+  }
+  .card__city {
+    font-size: 0.9rem;
+  }
+}
+/** Mobile **/
+@media screen and (max-width: 600px) {
+  .header__image {
+    height: 2.6rem;
+    margin-right: 1.2rem;
+    width: 3.8rem;
+  }
+  .header__form input {
+    font-size: 1.3rem;
+    width: 80%;
+  }
+  .header__form button {
+    height: 2.7rem;
+    width: 3rem;
+  }
+
+  .card {
+    grid-template: auto auto auto/9rem auto;
+    gap: 1rem;
+    grid-template-areas: "image info" ". city" "separator separator";
+    padding: 1rem;
+  }
+  .card__image {
+    height: 9rem;
+    width: 9rem;
+  }
+  .card__content {
+    padding-top: 1rem;
+  }
+  .card__title {
+    font-size: 1.3rem;
+    margin-top: 1.3rem;
+  }
+  .card__price {
+    font-size: 1.9rem;
+  }
+  .card__city {
+    font-size: 0.9rem;
+    padding: 0rem;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */
