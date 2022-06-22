@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import parseHtml from 'html-react-parser';
+
 import { getProductState } from '../helpers/getProductState';
 
 export const Detail = ({ picture, condition, sold_quantity, title, price, description }) => {
@@ -8,8 +8,8 @@ export const Detail = ({ picture, condition, sold_quantity, title, price, descri
     const currencyFormat = new Intl.NumberFormat();
     const state = getProductState(condition);
     const soldProducts = sold_quantity 
-                            ? `${state.description} - ${sold_quantity} vendidos`
-                            : state?.description;
+        ? `${state.description} - ${sold_quantity} vendidos`
+        : state?.description;
 
     return (
         <React.Fragment>

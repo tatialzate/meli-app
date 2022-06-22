@@ -7,7 +7,6 @@ export const ProductDetail = () => {
     const { itemId } = useParams();
     const { data, isLoading } = useFetch(`http://localhost:4001/api/items/${itemId}`);
 
-    console.log(data);
     return (
         <main>
             <section className='product-detail'>

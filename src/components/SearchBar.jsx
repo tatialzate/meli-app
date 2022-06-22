@@ -2,17 +2,16 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { validateCharacters } from '../helpers/validateCharacters';
 
-//import logo from '../assets/Logo_ML.png';
+import logo from '../assets/logo.png';
 
 export const SearchBar = () => {
     let navigate = useNavigate();
     const [value, setValue] = useState('');
 
     const searchProduct = (event) => {
-        
         event.preventDefault();
         if( value.trim().length <= 1 ) return;
-        console.log('Botón search');
+
         setValue('');
         navigate('/items?q=' + value );
     }
@@ -26,11 +25,9 @@ export const SearchBar = () => {
 
     return (
         <header className='header'>
-            { 
-                //img className='header__image' src={ logo } alt='Mercado libre' />
-                
-            }
-            <div className='header__image'></div>
+            <img className='header__image' src={ logo } alt='Mercado libre' />
+
+            {/* <div className='header__image'></div> */}
             <form className='header__form' onSubmit={ searchProduct }>
                 <input 
                     type='text'

@@ -1,18 +1,19 @@
 import React from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom';
+import { getEnvironmentVariables } from '../helpers/getEnvironmentVariables';
 
 import { useFetch } from '../hooks/useFetch';
 import { Card } from '../components/Card';
+
+const { API_URL } = getEnvironmentVariables();
 
 export const Products = () => {
     const [ searchParams ] = useSearchParams();
     const query = searchParams.get('q');
 
-    const { data, isLoading} = useFetch(`http://localhost:4001/api/items?q=${query}`);
+    const { data, isLoading} = useFetch(`${API_URL}/items?q=${query}`);
     const { items } = data;
 
-    console.log(items);
-   
     return (
         <main>
             <section className='products-cards'>

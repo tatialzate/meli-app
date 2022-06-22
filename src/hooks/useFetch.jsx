@@ -15,10 +15,8 @@ export const useFetch = ( url ) => {
     }
 
     useEffect( () => {
-        
         getData();
     }, [ url ]);
-    
     
     return { data, isLoading }
 }
