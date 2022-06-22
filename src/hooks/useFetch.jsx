@@ -1,29 +1,24 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export const useFetch = ( url ) => {
 
-    let [ data, setData ] = useState({ data: null, loading: true, error: null });
-    let isMounted = useRef(true);
+    let [ data, setData ] = useState([]);
+    let [ isLoading, setLoading ] =  useState( true );
 
-    console.log('holi')
-    
+    const getData = async () => {
+        setLoading( true );
+        const resp = await fetch( url );
+        const data = await resp.json();
+
+        setData( data )
+        setLoading( false );
+    }
+
     useEffect( () => {
-        fetch( url )
-            .then( resp => resp.json())
-            .then( data =>  { 
-                //if(isMounted.current) {
-                    setData({
-                        loading: false,
-                        error: null,
-                        data
-                    });
-               // }
-            })
-
-        return () => {
-            isMounted.current = false;
-        }
-    },[ url ]);
-
-    return data
+        
+        getData();
+    }, [ url ]);
+    
+    
+    return { data, isLoading }
 }

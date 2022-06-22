@@ -1,13 +1,22 @@
 import React from 'react'
-import freeShipping from '../assets/ic_shipping.png';
+import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-export const Card = ({ picture ,title, free_shipping, price } ) => {
+//TODO: Validar como hacer mocks de imágenes (DESCOMENTAR)
+//import freeShipping from '../assets/ic_shipping.png';
 
+export const Card = ({ id, picture ,title, free_shipping, price } ) => {
+    
+    let navigate = useNavigate();
     let currencyFormat =  new Intl.NumberFormat();
+
+    const seeDetail = (id) => {
+        navigate(`/items/${id}`);
+    }
 
     return (
       //div o article
-        <div className='card'>
+        <div className='card' onClick={ () => seeDetail(id) }>
             <div className='card__image'>
                 <img src={ picture } alt={ title } />
             </div>
@@ -15,8 +24,8 @@ export const Card = ({ picture ,title, free_shipping, price } ) => {
                 <p className='card__price'>
                     <span>$</span>{ currencyFormat.format(price.amount) }
                     { 
-                      free_shipping && 
-                          <img src={ freeShipping} alt='Envío gratuito' className='card__free-shipping'/> 
+                        free_shipping && 
+                            <img src={ 'freeShipping' } alt='Envío gratuito' className='card__free-shipping'/> 
                     }
                 </p> 
                 <h1 className='card__title'>{ title }</h1>
@@ -25,4 +34,12 @@ export const Card = ({ picture ,title, free_shipping, price } ) => {
             <hr/>
         </div>
     )
+}
+
+Card.propTypes = {
+    id     : PropTypes.string.isRequired,
+    picture: PropTypes.string.isRequired,
+    title  : PropTypes.string.isRequired,
+    free_shipping: PropTypes.bool.isRequired,
+    price  : PropTypes.object.isRequired
 }

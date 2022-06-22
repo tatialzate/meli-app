@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing of the screen Products Must display the cards with the info returned by useFetch 1`] = `
+<div>
+   
+  <main>
+    <section
+      class="products-cards"
+    >
+      <div
+        class="card"
+      >
+        <div
+          class="card__image"
+        >
+          <img
+            alt="Caniches Mini Toy"
+            src="https://http2.mlstatic.com/D_NQ_NP_991408-MLA49037315188_022022-F.webp"
+          />
+        </div>
+        <div
+          class="card__content"
+        >
+          <p
+            class="card__price"
+          >
+            <span>
+              $
+            </span>
+            25,998
+          </p>
+          <h1
+            class="card__title"
+          >
+            Caniches Mini Toy
+          </h1>
+        </div>
+        <p
+          class="card__city"
+        >
+          Mendoza
+        </p>
+        <hr />
+      </div>
+      <div
+        class="card"
+      >
+        <div
+          class="card__image"
+        >
+          <img
+            alt="Cachorros Golden Retriever 10"
+            src="https://http2.mlstatic.com/D_NQ_NP_957099-MLA47871728191_102021-F.webp"
+          />
+        </div>
+        <div
+          class="card__content"
+        >
+          <p
+            class="card__price"
+          >
+            <span>
+              $
+            </span>
+            85,000
+          </p>
+          <h1
+            class="card__title"
+          >
+            Cachorros Golden Retriever 10
+          </h1>
+        </div>
+        <p
+          class="card__city"
+        >
+          Mendoza
+        </p>
+        <hr />
+      </div>
+    </section>
+  </main>
+   
+</div>
+`;

@@ -15,13 +15,17 @@ $blue-color: #3483fA;
 $white-color:#FFFFFF;
 
 $helvetica-font-family: Helvetica,Roboto,Arial,sans-serif;
-$font-small: 1.2rem;
-$font-medium: 1.4rem;
-$font-base: 1.8rem;
+//xx-small | x-small | small | medium | large | x-large | xx-large
+$x-small-font: 1.2rem;
+$small-font: 1.4rem;
+$medium-font: 1.6rem;
+$base-font: 1.8rem;
+$large-font: 2.4rem;
+$x-large-font: 2.8rem;
+$xx-large-font: 4.6rem;
 
-
-$border-radius: 0.4rem;
-$border-radius-input: 0.2rem;
+$border-radius: 4px;
+$border-radius-input: 2px;
 
 * {
     margin: 0;
@@ -30,52 +34,69 @@ $border-radius-input: 0.2rem;
 }
 
 html {
-    font-size: 62.5%;
+    color:$secondary-color;
+    background-color: $light-grey-color;
     font-family: $helvetica-font-family;
-    background-color: $white-color;
+    font-size: 62.5%;
+}
+
+@mixin background-image ($url, $size){
+    background-image: url( $url );
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: $size;
 }
 
 @mixin flex-center($color) {
     align-items: center;
     background-color: $color;
     display: flex;
-    
+    justify-content: center;
+}
+
+//TODO:Ajustar en caso de que no retorne un color no incluya la propiedad background color
+@mixin grid ($bg-color, $gap){
+    background-color: $bg-color;
+    display: grid;
+    gap: $gap;
+}
+
+@mixin title($font-size) {
+    font-size: $font-size;
+    font-weight: 400;
 }
 
 .header {
     @include flex-center($primary-color);
-    height: 5rem;
-    justify-content: center;
+    height: 50px;
 
     &__image {
-        height: 3rem;
-        margin-right: 2.5rem;
-        width: 4.5rem;
+        @include background-image('./assets/Logo_ML.png', contain);
+        height: 30px;
+        margin-right: 25px;
+        width: 45px;
     }
 
     &__form {
-        width: 60%;
+        width: 65%;
         
         input{
             border: none;
             border-radius: $border-radius-input;
-            font-size: $font-base;
+            font-size: $base-font;
             font-family: $helvetica-font-family;
             outline: none;
-            padding: 0.6rem;
-            width: 94%;
+            padding: 6px;
+            width: 96.5%;
         }
     
         button {
-            background-image: url('./assets/ic_Search@2x.png.png');
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: 1.5rem;
+            @include background-image('./assets/ic_Search@2x.png.png', 15px);
             border: none;
-            height: 3.2rem;
+            height: 32px;
             /* Pendiente validar este padding */
-            padding: 1rem;
-            width: 3.5rem;
+            padding: 10px;
+            width: 35px;
             
         }
 
@@ -83,40 +104,33 @@ html {
 }
 
 main {
-    padding: 3.2rem 0;
+    @include flex-center($light-grey-color);
+    padding: 32px 0;
 }
 
-.products-cards {
-    @include flex-center($grey-color);
+.products-cards,
+.product-detail {
     border-radius: $border-radius;
-    flex-direction: column;
-    margin: 0rem auto;
-    width: 80%;
+    width: 70%;
 }
 
 .card {
-    color: $secondary-color;
-    background-color: $white-color;
-    display: grid;
-    grid-template: auto auto / 18rem 70% auto;
-    gap: 1.6rem;
+    @include grid($white-color, 16px);
+    grid-template: auto auto / 180px 65% auto;
     grid-template-areas: 
         "image info city"
         "separator separator separator";
-    padding: 1.6rem;
     width: 100%;
+    padding: 16px 16px 0px;
 
-    &:last-child hr {
-        display: none;
-    }
+    &:last-child hr { display: none; }
 
     &__image {
         border-radius: $border-radius;
         cursor: pointer;
         grid-area: image;
-        height: 18rem;
-        margin-right: 1.6rem;
-        width: 18rem;
+        height: 180px;
+        width: 180px;
 
         img {
             border-radius: $border-radius;
@@ -129,138 +143,224 @@ main {
     &__content {
         grid-area: info ;
     }
-
+    //TODO: Homologar con .product__price
     &__price {
-        font-size: 2.4rem; 
+        font-size: $large-font; 
 
         span {
-            margin-right: 0.5rem;
+            margin-right: 5px;
         }
     }
 
     &__title {
+        @include title( $base-font );
         cursor: pointer;
-        font-size: 1.8rem;
-        font-weight: 400;
-        margin-top: 3.2rem;
+        margin-top: 32px;
     }
 
     &__free-shipping{
         background-size: contain;
-        height: 1.4rem;
-        margin-left: 0.7rem;
-        width: 1.4rem;
+        height: 14px;
+        margin-left: 7px;
+        width: 14px;
     }
 
     &__city {
-        font-size: $font-small;
+        font-size: $x-small-font;
         grid-area: city;
     }
 }
 
 .card__content,
 .card__city {
-    padding-top: 1.6rem;
+    padding-top: 16px;
 }
 
 hr {
-    border: 0.05rem solid $light-grey-color;
+    border: 0.5px solid $light-grey-color;
     grid-area: separator;
+}
+
+.product-detail {
+    @include grid( $white-color, 16px );
+    grid-template: auto auto / 73% auto;
+    padding: 32px;
+
+    &__image {
+        border-radius: $border-radius;
+        height: auto;
+        //TODO: Definir un max-height
+        //width: 680px;
+        width: 83.8%
+    }
+
+    &__info {
+        button {
+            color: $white-color;
+            cursor: pointer;
+            background-color: $blue-color;
+            border: none;
+            border-radius: $border-radius;
+            font-size: $medium-font;
+            padding: 10px;
+            width: 100%;
+        }
+    }
+
+    &__description {
+        margin-top: 32px;
+
+        h2 {
+            @include title($x-large-font);
+        }
+
+        p { 
+            color:$grey-color;
+            font-size: $medium-font;
+            margin-top: 32px;
+            text-align: justify;
+        }
+    }
+}
+
+.product__title {
+    @include title($large-font);
+    margin-top: 16px;
+}
+
+.product__price {
+    font-size: $xx-large-font;
+    margin: 32px 0px;
+    position: relative;
+
+    span {
+        font-size: $base-font;
+        margin-left: 1px;
+        position: absolute;
+        top: 7px;
+    }
+} 
+
+
+.product__sold {
+    font-size: $small-font;
 }
 
 /** Tablet **/
 @media screen and (max-width:1024px) {
+    html {
+        font-size: 8px;
+    }
+
     .header {
         &__image {
-            height: 2.9rem;
-            margin-right: 1.8rem;
-            width: 4.4rem;
+            height: 29px;
+            margin-right: 18px;
+            width: 44px;
         }
 
         &__form {
-            input{
-                font-size: 1.5rem;
-                width: 88%;
-            }
+            width: 64%;
+
+            input{ width: 89.5%; }
 
             button {
-                height: 3rem;
-                /* Pendiente validar este padding */
-                padding: 0.9rem;
+                height: 30px;
+                //TODO:Pendiente validar este padding */
+                padding: 9px;
             }
         }
     }
 
     .card {
-        grid-template: auto auto / 11rem 55% auto;
+        grid-template: auto auto / 110px 55% auto;
         grid-template-areas: 
             "image info city"
             "separator separator separator";
         
         &__image {
-            height: 11rem;
-            width: 11rem;
+            height: 110px;
+            width: 110px;
         }
 
-        &__title {
-            font-size: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        &__price { font-size: 2.1rem; }
-
-        &__city {  font-size: 0.9rem; }
+        &__title { margin-top: 20px; }
     }
+
+    .product-detail{
+        grid-template: auto auto / 59% auto;
+        
+        &__image { width: 95%; }
+    
+        &__description {
+            grid-column: 1 / span 2;
+
+            p { margin-top: 25px; }
+        }    
+    }
+
+    .product__price {  margin: 25px 0px; }
 }
 
 /** Mobile **/
 @media screen and (max-width:600px) {
+    html {
+        font-size: 8px;
+    }
+
     .header {
         &__image {
-            height: 2.6rem;
-            margin-right: 1.2rem;
-            width: 3.8rem;
+            height: 26px;
+            margin-right: 12px;
+            width: 38px;
         }
 
         &__form {
-            input{
-                font-size: 1.3rem;
-                width: 80%;
-            }
+            input{ width: 80%; }
         
             button {
-                height: 2.7rem;
-                width: 3rem;  
+                height: 27px;
+                width: 30px;  
             }
         }
     }
 
     .card {
-        grid-template: auto auto auto/9rem auto;
-        gap: 1rem;
+        gap: 10px;
+        grid-template: auto auto auto/90px auto;
         grid-template-areas: 
             "image info"
             ". city"
             "separator separator";
-        padding: 1rem;
+        padding: 10px;
         
         &__image {
-            height: 9rem;
-            width: 9rem;
+            height: 90px;
+            width: 90px;
         }
 
-        &__content { padding-top: 1rem; }
-
-        &__title {
-            font-size: 1.3rem;
-            margin-top: 1.3rem;
-        }
-
-        &__price {  font-size: 1.9rem; }
-
-        &__city {
-            font-size: 0.9rem;
-            padding: 0rem;
-        }
+        &__content { padding-top: 10px; }
+        &__title { margin-top: 13px; }
+        &__city { padding: 0px; }
     }
+
+    .product-detail{
+        gap: 6px;
+        grid-template: auto auto auto/auto;
+        
+        &__image {
+            grid-row: 3;
+            margin-top: 20px;
+            width: 95%;
+        }
+        
+        &__info { display: contents; }
+        &__description {
+            //TODO:Remover cuando lo cree en una hoja de estilos aparte;
+            grid-column: unset;
+
+            p { margin-top: 25px }
+        }    
+    }
+
+    .product__title { margin: 0px; }
 }

@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom';
 
 import { Main } from './Main';
-import { Products } from './ProductsList';
+import { Products } from './Products';
 import { ProductDetail } from './ProductDetail';
 
 export const AppRouter = () => {
