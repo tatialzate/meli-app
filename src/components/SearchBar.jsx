@@ -10,10 +10,11 @@ export const SearchBar = () => {
 
     const searchProduct = (event) => {
         event.preventDefault();
-        if( value.trim().length <= 1 ) return;
 
-        setValue('');
-        navigate('/items?q=' + value );
+        if( value.trim().length > 0 ) {
+            setValue('');
+            navigate('/items?q=' + value );
+        }       
     }
 
     const handlerInputChange = (event) => {
@@ -26,8 +27,6 @@ export const SearchBar = () => {
     return (
         <header className='header'>
             <img className='header__image' src={ logo } alt='Mercado libre' />
-
-            {/* <div className='header__image'></div> */}
             <form className='header__form' onSubmit={ searchProduct }>
                 <input 
                     type='text'

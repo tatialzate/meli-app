@@ -85,10 +85,8 @@ html {
             border: none;
             border-radius: 0px 4px 4px 0px;
             height: 33px;
-            width: 40px;
-            
+            width: 40px; 
         }
-
     }
 }
 
@@ -158,7 +156,7 @@ main {
         margin-top: 32px;
     }
 
-    &__free-shipping{
+    &__free-shipping {
         background-size: contain;
         height: 14px;
         margin-left: 7px;
@@ -196,11 +194,11 @@ hr {
 
     &__info {
         button {
-            color: $white-color;
-            cursor: pointer;
             background-color: $blue-color;
             border: none;
             border-radius: $border-radius;
+            color: $white-color;
+            cursor: pointer;
             font-size: $medium-font;
             padding: 10px;
             width: 100%;
@@ -241,7 +239,6 @@ hr {
         top: 7px;
     }
 } 
-
 
 .product__sold {
     font-size: $small-font;

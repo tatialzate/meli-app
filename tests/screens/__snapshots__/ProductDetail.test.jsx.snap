@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing of the screen ProductDetail Must display the product detail 1`] = `
+<div>
+  <main>
+    <section
+      class="product-detail"
+    >
+      <img
+        alt="Caniches Mini Toy"
+        class="product-detail__image"
+        src="https://http2.mlstatic.com/D_NQ_NP_991408-MLA49037315188_022022-F.webp"
+      />
+      <div
+        class="product-detail__info"
+      >
+        <p
+          class="product__sold"
+        >
+          Nuevo - 5 vendidos
+        </p>
+        <h1
+          class="product__title"
+        >
+          Caniches Mini Toy
+        </h1>
+        <p
+          class="product__price"
+        >
+          $ 
+          25,998
+          <span>
+            00
+          </span>
+        </p>
+        <button>
+          Comprar
+        </button>
+      </div>
+      <div
+        class="product-detail__description"
+      >
+        <h2>
+          Descripcion del producto
+        </h2>
+        <p>
+           
+          Excelente Cachorros vacunado y desparacitado bien cuidados y criado con amor los publicado es apartir de la segunda foto primer fotos es rojo otro link
+           
+        </p>
+      </div>
+    </section>
+  </main>
+</div>
+`;

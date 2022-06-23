@@ -29,10 +29,10 @@ export const Detail = ({ picture, condition, sold_quantity, title, price, descri
 }
 
 Detail.propTypes = {
-    picture  : PropTypes.string.isRequired,
+    picture: PropTypes.string.isRequired,
     condition: PropTypes.string.isRequired,
     sold_quantity: PropTypes.number.isRequired,
-    title    : PropTypes.string.isRequired,
-    price    : PropTypes.object.isRequired,
+    title: PropTypes.string.isRequired,
+    price: PropTypes.object.isRequired,
     description: PropTypes.string.isRequired
 }
