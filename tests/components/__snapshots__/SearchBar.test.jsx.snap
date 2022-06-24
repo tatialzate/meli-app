@@ -15,6 +15,7 @@ exports[`Testing of component <SearchBar /> Must do match with snapshot 1`] = `
       class="header__form"
     >
       <input
+        maxlength="30"
         name="search"
         placeholder="Nunca dejes de buscar"
         type="text"

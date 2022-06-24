@@ -12,8 +12,7 @@ export const SearchBar = () => {
         event.preventDefault();
 
         if( value.trim().length > 0 ) {
-            setValue('');
-            navigate('/items?q=' + value );
+            navigate('/items?search=' + value );
         }       
     }
 
@@ -32,6 +31,7 @@ export const SearchBar = () => {
                     type='text'
                     name='search'
                     value={ value }
+                    maxLength='30'
                     onChange={ handlerInputChange } 
                     placeholder='Nunca dejes de buscar' />
                 <button type='submit' onSubmit={ searchProduct }></button>

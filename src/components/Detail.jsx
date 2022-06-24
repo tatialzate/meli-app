@@ -17,11 +17,11 @@ export const Detail = ({ picture, condition, sold_quantity, title, price, descri
             <div className='product-detail__info'>
                 <p className='product__sold'>{ soldProducts }</p>
                 <h1 className='product__title'>{ title }</h1>
-                <p className='product__price'>$ { currencyFormat.format(price?.amount) }<span>00</span></p>
+                <p className='product__price'>$ { currencyFormat.format(price?.amount) }</p>
                 <button>Comprar</button>
             </div>
             <div className='product-detail__description'>
-                <h2>Descripcion del producto</h2>
+                <h2>Descripción del producto</h2>
                 <p> { description } </p>
             </div>
         </React.Fragment>

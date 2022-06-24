@@ -12,7 +12,7 @@ describe('Testing of the screen Products', () => {
         useFetch.mockReturnValue( initialState );
 
         render(<Router><Products /></Router>);
-        expect( screen.getByText('Loading...' ) ).toBeTruthy();
+        expect( screen.getByText('Cargando...' ) ).toBeTruthy();
     })
 
     test( 'Must display the cards with the info returned by useFetch', async () => {

@@ -56,6 +56,11 @@ html {
     font-weight: 400;
 }
 
+@mixin main-section {
+    border-radius: $border-radius;
+    width: 70%;
+}
+
 .header {
     @include flex-center();
     background-color: $primary-color;
@@ -96,20 +101,23 @@ main {
     padding: 32px 0;
 }
 
-.products-cards,
-.product-detail {
-    border-radius: $border-radius;
-    width: 70%;
+.products-cards {
+    @include main-section();
+    &--state {
+        background-color: white;
+        padding: 32px;
+    }
 }
 
 .card {
     @include grid($white-color, 16px);
+    cursor: pointer;
     grid-template: auto auto / 180px 65% auto;
     grid-template-areas: 
         "image info city"
         "separator separator separator";
-    width: 100%;
     padding: 16px 16px 0px;
+    width: 100%;
 
     &:first-child {
         border-radius: $border-radius $border-radius 0 0;
@@ -125,7 +133,6 @@ main {
 
     &__image {
         border-radius: $border-radius;
-        cursor: pointer;
         grid-area: image;
         height: 180px;
         width: 180px;
@@ -152,7 +159,6 @@ main {
 
     &__title {
         @include title( $base-font );
-        cursor: pointer;
         margin-top: 32px;
     }
 
@@ -181,15 +187,21 @@ hr {
 
 .product-detail {
     @include grid( $white-color, 16px );
+    @include main-section();
     grid-template: auto auto / 73% auto;
     padding: 32px;
+    
+    &--state {
+        grid: unset;
+        gap: unset;
+    }
 
     &__image {
         border-radius: $border-radius;
         height: auto;
         justify-self: center;
-        max-width: 680px;
-        width: 83.8%
+        max-width: 430px;
+        width: 55.8%;
     }
 
     &__info {
@@ -200,7 +212,7 @@ hr {
             color: $white-color;
             cursor: pointer;
             font-size: $medium-font;
-            padding: 10px;
+            padding: 13px;
             width: 100%;
         }
     }
@@ -283,7 +295,7 @@ hr {
     }
 
     .product-detail{
-        grid-template: auto auto / 59% auto;
+        grid-template: auto auto / 53% auto;
         
         &__image { width: 95%; }
     
@@ -299,7 +311,7 @@ hr {
 
 @media screen and (max-width:600px) {
     html {
-        font-size: 8px;
+        font-size: 7.4px;
     }
 
     .header {

@@ -15,7 +15,7 @@ export const Card = ({ id, picture ,title, free_shipping, price } ) => {
 
     return (
         <div className='card' onClick={ () => seeDetail(id) }>
-            <div className='card__image'>
+            <div className='card__image animate__fadeIn'>
                 <img src={ picture } alt={ title } />
             </div>
             <div className='card__content'>

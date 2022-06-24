@@ -1,6 +1,7 @@
 export const initialState = {
     data: [],
-    isLoading: true
+    isLoading: true,
+    error: null
 }
 
 export const productDetail = {

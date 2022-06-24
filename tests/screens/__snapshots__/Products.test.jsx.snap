@@ -3,15 +3,17 @@
 exports[`Testing of the screen Products Must display the cards with the info returned by useFetch 1`] = `
 <div>
    
-  <main>
+  <main
+    class="animate__fadeIn"
+  >
     <section
-      class="products-cards"
+      class="products-cards "
     >
       <div
         class="card"
       >
         <div
-          class="card__image"
+          class="card__image animate__fadeIn"
         >
           <img
             alt="Caniches Mini Toy"
@@ -46,7 +48,7 @@ exports[`Testing of the screen Products Must display the cards with the info ret
         class="card"
       >
         <div
-          class="card__image"
+          class="card__image animate__fadeIn"
         >
           <img
             alt="Cachorros Golden Retriever 10"

@@ -7,7 +7,7 @@ exports[`Testing of component <Card /> Must do match with snapshot 1`] = `
     class="card"
   >
     <div
-      class="card__image"
+      class="card__image animate__fadeIn"
     >
       <img
         alt="Silla De Comer Mega Baby Multy Posiciones Bandeja Extraible "

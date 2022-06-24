@@ -11,7 +11,7 @@ describe('Testing of the screen ProductDetail', () => {
         useFetch.mockReturnValue( initialState )
 
         render(<ProductDetail />);
-        expect( screen.getByText('Loading...' ) ).toBeTruthy();
+        expect( screen.getByText('Cargando...' ) ).toBeTruthy();
     })
 
     test('Must display the product detail', () => {

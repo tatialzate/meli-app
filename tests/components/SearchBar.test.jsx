@@ -25,13 +25,13 @@ describe('Testing of component <SearchBar />', () => {
         expect( searchInput.value).toBe(inputValue);
     })
 
-    test('Validate that the field do clean after the search', () => {
+    test('Validates that the field retains its value after search', () => {
         render( <Router> <SearchBar /> </Router> );
         
         const searchInput = screen.getByRole('textbox');
 
         fireEvent.input( searchInput, event )
         fireEvent.submit( screen.getByRole('button') );
-        expect( searchInput.value ).toBe('');
+        expect( searchInput.value ).toBe(inputValue);
     })
 })

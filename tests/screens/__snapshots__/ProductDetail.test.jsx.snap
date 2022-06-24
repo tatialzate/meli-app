@@ -4,7 +4,7 @@ exports[`Testing of the screen ProductDetail Must display the product detail 1`]
 <div>
   <main>
     <section
-      class="product-detail"
+      class="product-detail "
     >
       <img
         alt="Caniches Mini Toy"
@@ -29,9 +29,6 @@ exports[`Testing of the screen ProductDetail Must display the product detail 1`]
         >
           $ 
           25,998
-          <span>
-            00
-          </span>
         </p>
         <button>
           Comprar
@@ -41,7 +38,7 @@ exports[`Testing of the screen ProductDetail Must display the product detail 1`]
         class="product-detail__description"
       >
         <h2>
-          Descripcion del producto
+          Descripción del producto
         </h2>
         <p>
            
